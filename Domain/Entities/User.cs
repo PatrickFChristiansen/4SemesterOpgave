@@ -1,7 +1,5 @@
 ﻿using System;
-
 using Domain.ValueObjects;
-
 namespace Domain.Entities
 {
     public abstract class User : EntityBase
