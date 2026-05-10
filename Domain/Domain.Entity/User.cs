@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Domain.Domain.Entity
 {
-    internal class Person
+    internal class User
     {
     }
 }
