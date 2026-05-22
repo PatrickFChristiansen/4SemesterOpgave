@@ -1,6 +1,15 @@
 <Solution>
-  <Project Path="Application/Application.csproj" />
-  <Project Path="Domain/Domain.csproj" />
-  <Project Path="infrastructure/infrastructure.csproj" />
+  <Folder Name="/Authentication/">
+    <Project Path="Authentication.API/Authentication.API.csproj" Id="1c4a5d89-7919-4547-9a9c-152505388165" />
+    <Project Path="Authentication.Application/Authentication.Application.csproj" Id="4a7c088c-b79c-415c-9e81-0041fd61b584" />
+    <Project Path="Authentication.Infrastructure/Authentication.Infrastructure.csproj" Id="fb472922-7f98-49b2-9f49-66cdabebd9fd" />
+    <Project Path="Authentication/Authentication.Domain.csproj" Id="353fa81b-e124-4bf4-b361-416de6af9d74" />
+  </Folder>
+  <Folder Name="/Core/">
+    <Project Path="API/API.csproj" Id="a0a729e2-606a-45be-998a-c6a4c3c9b5ec" />
+    <Project Path="Application/Application.csproj" />
+    <Project Path="Domain/Domain.csproj" />
+    <Project Path="infrastructure/infrastructure.csproj" />
+  </Folder>
   <Project Path="UI/UI.csproj" />
 </Solution>

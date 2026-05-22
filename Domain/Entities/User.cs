@@ -31,22 +31,7 @@ namespace Domain.Entities
                 throw new ArgumentException("Last name can't be empty");
             FirstName = firstName.Trim();
             LastName = lastName.Trim();
-            MarkAsUpdated();
         }
-        public void ChangeEmail(Email email)
-        {
-            Email = email ?? throw new ArgumentNullException(nameof(email));
-            MarkAsUpdated();
-        }
-        public void ChangePhoneNumber(PhoneNumber phoneNumber)
-        {
-            PhoneNumber = phoneNumber ?? throw new ArgumentNullException(nameof(phoneNumber));
-            MarkAsUpdated();
-        }
-        public void ChangeAddress(Address address)
-        {
-            Address = address ?? throw new ArgumentNullException(nameof(address));
-            MarkAsUpdated();
-        }
+       
     }
 }

@@ -3,7 +3,9 @@
 
 namespace Domain.Entities
 {
-    public class Parent
+    public class Parent : User
     {
+      
+
     }
 }
