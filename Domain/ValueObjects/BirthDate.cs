@@ -1,10 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+
+
+
 
 namespace Domain.ValueObjects
 {
-    internal class BirthDate
+    public class BirthDate
     {
+        public DateOnly Value { get; private set; }
+
+        protected BirthDate() { }
+
+        public BirthDate(DateOnly value)
+        {
+            if (value > DateOnly.FromDateTime(DateTime.UtcNow))
+                throw new ArgumentException("Birth date can't be in the future.");
+
+            Value = value;
+        }
     }
 }
