@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Domain.ValueObjects
 {
-    public class Address
+    public sealed class Address
     {
         public string Street { get; private set; }
         public string City { get; private set; }
@@ -15,6 +15,10 @@ namespace Domain.ValueObjects
 
         private Address()
         {
+            Street = null!;
+            City = null!;
+            StreetNumber = null!;
+            PostalCode = null!;
         }
 
         public Address(string street, string city, string streetNumber, string postalCode)

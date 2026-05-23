@@ -9,7 +9,10 @@ namespace Domain.ValueObjects
         public string Number { get; private set; }
 
 
-        private PhoneNumber() { }
+        private PhoneNumber() {
+        CountryCode = null!;
+        Number = null!;
+            }
 
 
         public PhoneNumber(string countryCode, string number)

@@ -5,11 +5,11 @@
 
 namespace Domain.ValueObjects
 {
-    public class BirthDate
+    public sealed class BirthDate
     {
         public DateOnly Value { get; private set; }
 
-        protected BirthDate() { }
+        private BirthDate(){}
 
         public BirthDate(DateOnly value)
         {

@@ -4,11 +4,13 @@
 
 namespace Domain.ValueObjects
 {
-    public class CprLastFour
+    public sealed class CprLastFour
     {
         public string Value { get; private set; }
 
-        protected CprLastFour() { }
+        private CprLastFour() {
+        Value = null!;
+        }
 
         public CprLastFour(string value)
         {

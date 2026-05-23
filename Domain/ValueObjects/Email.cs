@@ -7,7 +7,9 @@ namespace Domain.ValueObjects
     {
         public string Value { get; private set; }
 
-        private Email() { }
+        private Email() {
+            Value = null!;
+                }
   
     public Email(string value)
         {

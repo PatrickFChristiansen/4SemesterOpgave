@@ -4,13 +4,16 @@
 
 namespace Domain.ValueObjects
 {
-    public class HealthInformation
+    public sealed class HealthInformation
     {
         public string? Allergies { get; private set; }
         public string? Medication { get; private set; }
         public string? Notes { get; private set; }
 
-        protected HealthInformation() { }
+        private HealthInformation()
+        {
+            
+        }
 
         public HealthInformation(
             string? allergies,
