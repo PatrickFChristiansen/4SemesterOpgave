@@ -29,7 +29,7 @@ namespace Domain.Entities
             UserRole role)
         {
             if (personId == Guid.Empty)
-                throw new ArgumentException("User id can't be empty.");
+                throw new ArgumentException("Person id can't be empty.");
 
             if (string.IsNullOrWhiteSpace(passwordHash))
                 throw new ArgumentException("Password hash can't be empty.");
