@@ -16,11 +16,12 @@ namespace Application.Institutions.CreateInstitution
     
         public async Task<Guid> Handle(Command command)
         {
-            var adress = new Address(
+            var address = new Address(
                 command.Street,
                 command.City,
                 command.StreetNumber,
                 command.PostalCode);
+
             var institution = new Institution(
                 command.Name,
                 address);
