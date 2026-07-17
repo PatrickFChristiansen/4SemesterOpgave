@@ -1,5 +1,5 @@
 using System;
-
+using Domain.Enums;
 namespace Application.Rooms.CreateRoom
 {
     public sealed class CreateRoomCommand
@@ -8,6 +8,6 @@ namespace Application.Rooms.CreateRoom
         public string Name { get; set; } = string.Empty;
         public string PhoneCountryCode { get; set; } = string.Empty;
         public string PhoneNumber { get; set; } = string.Empty;
-        public Domain.Enums.RoomType Type { get; set; } = Domain.Enums.RoomType.nursury;
+        public RoomType Type { get; set; } = RoomType.nursury;
     }
 }

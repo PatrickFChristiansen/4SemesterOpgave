@@ -1,4 +1,5 @@
 using System;
+using Domain.Enums;
 
 namespace Application.Employees.CreateEmployee
 {
@@ -14,6 +15,6 @@ namespace Application.Employees.CreateEmployee
         public string City { get; set; } = string.Empty;
         public string StreetNumber { get; set; } = string.Empty;
         public string PostalCode { get; set; } = string.Empty;
-        public Domain.Enums.EmployeeLevel Level { get; set; } = Domain.Enums.EmployeeLevel.Employee;
+        public EmployeeLevel Level { get; set; } = EmployeeLevel.Employee;
     }
 }
