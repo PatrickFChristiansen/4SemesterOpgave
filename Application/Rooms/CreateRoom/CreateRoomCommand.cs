@@ -2,7 +2,7 @@ using System;
 
 namespace Application.Rooms.CreateRoom
 {
-    public sealed class CreateRoomCommand
+    public sealed class CreateRoomCommand //nice name
     {
         public Guid InstitutionId { get; set; }
         public string Name { get; set; } = string.Empty;
