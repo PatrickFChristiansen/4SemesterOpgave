@@ -8,6 +8,6 @@ namespace Application.Rooms.CreateRoom
         public string Name { get; set; } = string.Empty;
         public string PhoneCountryCode { get; set; } = string.Empty;
         public string PhoneNumber { get; set; } = string.Empty;
-        public RoomType Type { get; set; } = RoomType.nursury;
+        public RoomType Type { get; set; } 
     }
 }

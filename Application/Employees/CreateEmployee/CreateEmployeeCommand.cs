@@ -15,6 +15,6 @@ namespace Application.Employees.CreateEmployee
         public string City { get; set; } = string.Empty;
         public string StreetNumber { get; set; } = string.Empty;
         public string PostalCode { get; set; } = string.Empty;
-        public EmployeeLevel Level { get; set; } = EmployeeLevel.Employee;
+        public EmployeeLevel Level { get; set; }
     }
 }
