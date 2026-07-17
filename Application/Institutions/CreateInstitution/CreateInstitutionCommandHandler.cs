@@ -6,15 +6,15 @@ using Domain.Repositories;
 
 namespace Application.Institutions.CreateInstitution
 {
-    public sealed class CommandHandler
+    public sealed class CreateInstitutionCommandHandler
     {
         private readonly IInstitutionRepository _institutionRepository;
-        public CommandHandler(IInstitutionRepository institutionRepository)
+        public CreateInstitutionCommandHandler(IInstitutionRepository institutionRepository)
         {
             _institutionRepository = institutionRepository;
         }
     
-        public async Task<Guid> Handle(Command command)
+        public async Task<Guid> Handle(CreateInstitutionCommand command)
         {
             var address = new Address(
                 command.Street,
