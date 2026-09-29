@@ -6,8 +6,8 @@ namespace Domain.Enums
 {
     public enum RoomType
     {
-        nursury = 1,
-        kindergarten = 2,
+        Nursery = 1,
+        Kindergarten = 2,
     }
    
 }
