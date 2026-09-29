@@ -42,5 +42,30 @@ public class Institution : EntityBase
         Address = address ?? throw new ArgumentNullException(nameof(address));
     }
 
-    // AddRoom og RemoveRoom fortsætter her...
+    public void AddRoom(Room room)
+    {
+        if (room is null)
+            throw new ArgumentNullException(nameof(room));
+
+        if (_rooms.Any(x => x.Id == room.Id))
+        {
+            throw new InvalidOperationException(
+                "Room is already attached to this institution.");
+        }
+
+        _rooms.Add(room);
+    }
+
+    public void RemoveRoom(Guid roomId)
+    {
+        var room = _rooms.FirstOrDefault(x => x.Id == roomId);
+
+        if (room is null)
+        {
+            throw new InvalidOperationException(
+                "Room not found.");
+        }
+
+        _rooms.Remove(room);
+    }
 }

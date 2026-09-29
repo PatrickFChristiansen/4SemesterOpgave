@@ -1,6 +1,6 @@
 namespace Application.Institutions.CreateInstitution
 {
-    public sealed class CreateInstitutionCommand
+    public sealed class Command
     {
         public required string Name { get; set; } = string.Empty;
         public required string Street { get; set; } = string.Empty;
