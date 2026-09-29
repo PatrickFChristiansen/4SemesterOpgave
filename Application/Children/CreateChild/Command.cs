@@ -13,7 +13,6 @@ namespace Application.Children.CreateChild
         public required DateOnly BirthDate { get; set; }
         public required string CprLastFour { get; set; } = string.Empty;
         public required Guid RoomId { get; set; }
-        public required string HealthInformation { get; set; } = string.Empty;
 
         public string? Allergies { get; set; }
         public string? Medication { get; set; }
