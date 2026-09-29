@@ -1,11 +1,10 @@
-using Domain.Enums;
 using System;
 
-namespace Application.Employees.CreateEmployee
+namespace Application.Guardians.UpdateGuardian
 {
     public sealed class Command
     {
-        public Guid InstitutionId { get; set; }
+        public Guid Id { get; set; }
         public required string FirstName { get; set; } = string.Empty;
         public required string LastName { get; set; } = string.Empty;
         public required string Email { get; set; } = string.Empty;
@@ -15,6 +14,5 @@ namespace Application.Employees.CreateEmployee
         public required string City { get; set; } = string.Empty;
         public required string StreetNumber { get; set; } = string.Empty;
         public required string PostalCode { get; set; } = string.Empty;
-        public EmployeeLevel Level { get; set; }
     }
 }

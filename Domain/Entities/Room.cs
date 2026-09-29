@@ -33,5 +33,19 @@ namespace Domain.Entities
             PhoneNumber = phoneNumber ?? throw new ArgumentNullException(nameof(phoneNumber));
             Type = type;
         }
+
+        public void Update(Guid institutionId, string name, PhoneNumber phoneNumber, RoomType type)
+        {
+            if (institutionId == Guid.Empty)
+                throw new ArgumentException("Institution id can't be empty.");
+
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException("Room name can't be empty.");
+
+            InstitutionId = institutionId;
+            Name = name.Trim();
+            PhoneNumber = phoneNumber ?? throw new ArgumentNullException(nameof(phoneNumber));
+            Type = type;
+        }
     }
 }

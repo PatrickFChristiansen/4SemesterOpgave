@@ -32,6 +32,13 @@ namespace Domain.Entities
             FirstName = firstName.Trim();
             LastName = lastName.Trim();
         }
+
+        public void UpdateContactDetails(Email email, PhoneNumber phoneNumber, Address address)
+        {
+            Email = email ?? throw new ArgumentNullException(nameof(email));
+            PhoneNumber = phoneNumber ?? throw new ArgumentNullException(nameof(phoneNumber));
+            Address = address ?? throw new ArgumentNullException(nameof(address));
+        }
        
     }
 }

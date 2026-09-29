@@ -24,6 +24,12 @@ namespace Domain.Entities
             Level = level;
         }
 
+        public void UpdateEmploymentDetails(Guid institutionId, EmployeeLevel level)
+        {
+            InstitutionID = institutionId;
+            Level = level;
+        }
+
 
 
         public Employee() { }

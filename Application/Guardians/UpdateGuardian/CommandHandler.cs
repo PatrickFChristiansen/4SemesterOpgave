@@ -1,8 +1,7 @@
-using Domain.Entities;
 using Domain.Repositories;
 using Domain.ValueObjects;
 
-namespace Application.Guardians.CreateGuardian
+namespace Application.Guardians.UpdateGuardian
 {
     public sealed class CommandHandler
     {
@@ -15,22 +14,26 @@ namespace Application.Guardians.CreateGuardian
 
         public async Task<Guid> Handle(Command command)
         {
+            var guardian = await _guardianRepository.GetByIdAsync(command.Id);
+
+            if (guardian is null)
+            {
+                throw new InvalidOperationException(
+                    $"Guardian with id '{command.Id}' was not found.");
+            }
+
             var email = new Email(command.Email);
+            var phoneNumber = new PhoneNumber(command.PhoneCountryCode, command.PhoneNumber);
             var address = new Address(
                 command.Street,
                 command.City,
                 command.StreetNumber,
                 command.PostalCode);
-            var phoneNumber = new PhoneNumber(command.PhoneCountryCode, command.PhoneNumber);
 
-            var guardian = new Guardian(
-                command.FirstName,
-                command.LastName,
-                email,
-                address,
-                phoneNumber);
+            guardian.ChangeName(command.FirstName, command.LastName);
+            guardian.UpdateContactDetails(email, phoneNumber, address);
 
-            await _guardianRepository.AddAsync(guardian);
+            await _guardianRepository.UpdateAsync(guardian);
             return guardian.Id;
         }
     }

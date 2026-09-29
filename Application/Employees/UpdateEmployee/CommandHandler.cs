@@ -1,8 +1,7 @@
-using Domain.Entities;
 using Domain.Repositories;
 using Domain.ValueObjects;
 
-namespace Application.Employees.CreateEmployee
+namespace Application.Employees.UpdateEmployee
 {
     public sealed class CommandHandler
     {
@@ -15,6 +14,14 @@ namespace Application.Employees.CreateEmployee
 
         public async Task<Guid> Handle(Command command)
         {
+            var employee = await _employeeRepository.GetByIdAsync(command.Id);
+
+            if (employee is null)
+            {
+                throw new InvalidOperationException(
+                    $"Employee with id '{command.Id}' was not found.");
+            }
+
             var email = new Email(command.Email);
             var phoneNumber = new PhoneNumber(command.PhoneCountryCode, command.PhoneNumber);
             var address = new Address(
@@ -23,16 +30,11 @@ namespace Application.Employees.CreateEmployee
                 command.StreetNumber,
                 command.PostalCode);
 
-            var employee = new Employee(
-                command.InstitutionId,
-                command.FirstName,
-                command.LastName,
-                email,
-                phoneNumber,
-                address,
-                command.Level);
+            employee.ChangeName(command.FirstName, command.LastName);
+            employee.UpdateContactDetails(email, phoneNumber, address);
+            employee.UpdateEmploymentDetails(command.InstitutionId, command.Level);
 
-            await _employeeRepository.AddAsync(employee);
+            await _employeeRepository.UpdateAsync(employee);
             return employee.Id;
         }
     }

@@ -1,8 +1,7 @@
-using Domain.Entities;
 using Domain.Repositories;
 using Domain.ValueObjects;
 
-namespace Application.Rooms.CreateRoom
+namespace Application.Rooms.UpdateRoom
 {
     public sealed class CommandHandler
     {
@@ -15,14 +14,22 @@ namespace Application.Rooms.CreateRoom
 
         public async Task<Guid> Handle(Command command)
         {
+            var room = await _roomRepository.GetByIdAsync(command.Id);
+
+            if (room is null)
+            {
+                throw new InvalidOperationException(
+                    $"Room with id '{command.Id}' was not found.");
+            }
+
             var phoneNumber = new PhoneNumber(command.PhoneCountryCode, command.PhoneNumber);
-            var room = new Room(
+            room.Update(
                 command.InstitutionId,
                 command.Name,
                 phoneNumber,
                 command.Type);
 
-            await _roomRepository.AddAsync(room);
+            await _roomRepository.UpdateAsync(room);
             return room.Id;
         }
     }

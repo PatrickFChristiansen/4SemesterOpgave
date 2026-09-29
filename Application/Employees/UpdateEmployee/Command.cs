@@ -1,10 +1,11 @@
 using Domain.Enums;
 using System;
 
-namespace Application.Employees.CreateEmployee
+namespace Application.Employees.UpdateEmployee
 {
     public sealed class Command
     {
+        public Guid Id { get; set; }
         public Guid InstitutionId { get; set; }
         public required string FirstName { get; set; } = string.Empty;
         public required string LastName { get; set; } = string.Empty;
